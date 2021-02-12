@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
 
-const Person = ({ img, name, job }) => {
+const Person = (props) => {
+  const { img, name, job } = props.person;
   const url = `https://randomuser.me/api/portraits/thumb/men/${img}.jpg`;
   return (
     <div className="person">
@@ -32,7 +33,7 @@ const PersonList = () => {
       job: "Artist",
     },
   ];
-  return people.map(({ img, name, job }) => <Person img={img} name={name} job={job} />);
+  return people.map((person) => <Person person={person} />);
 };
 
 const App = () => {
